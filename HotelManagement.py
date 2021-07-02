@@ -3,7 +3,7 @@ from Reservation import Reservation
 from datetime import datetime
 
 def write_rooms(rooms):
-    f = open('Hotel Management/rooms.txt', 'w+')
+    f = open('rooms.txt', 'w+')
     number_of_elements = len(rooms)
     i = 1
     for room in rooms:
@@ -15,7 +15,7 @@ def write_rooms(rooms):
     f.close()
 
 def read_rooms():
-    f = open('Hotel Management/rooms.txt', 'r+')
+    f = open('rooms.txt', 'r+')
     rooms = []
     for line in f.readlines():
         parts = line.strip().split(',')
@@ -25,7 +25,7 @@ def read_rooms():
     return rooms
 
 def read_reservations():
-    r = open('Hotel Management/reservations.txt', 'r+')
+    r = open('reservations.txt', 'r+')
     reservations = []
     for rline in r.readlines():
         rparts = rline.strip().split(',')
@@ -35,7 +35,7 @@ def read_reservations():
     return reservations
 
 def write_reservations(reservations):
-    r = open('Hotel Management/reservations.txt', 'w+')
+    r = open('reservations.txt', 'w+')
     number_of_elements = len(reservations)
     i = 1
     for reservation in reservations:
@@ -80,9 +80,7 @@ while True:
         reservations = read_reservations()
 
         #list all rooms
-        if val == "1":    
-            print('
-            ')  
+        if val == "1":  
             print('--------------------')
             print('LIST OF ROOMS')
             print('--------------------')
@@ -187,7 +185,7 @@ while True:
             while room_wifi not in room_wifi_options:
                 room_wifi = input("You have to enter a valid value (Y/N), try again: ").upper()
             
-            rooms.append(Room(room_val, room_bedval, room_bedsize, room_wifi == 'Y'))
+            rooms.append(Room(room_val, room_bedval, room_bedsize, room_wifi))
             write_rooms(rooms)
             print("Room added successfully")
 
